@@ -1,0 +1,42 @@
+@import "../variables";
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+mat-sidenav {
+  width: 250px;
+  position: fixed;
+}
+
+.container-fluid {
+  padding: 0;
+  background-color: $color-white;
+
+  .main {
+    flex-wrap: nowrap;
+    min-height: calc(100vh - 82px);
+    background: $color-gray;
+    margin: 0;
+  }
+
+  .main-content {
+    padding: 16px 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &.col-md-11 {
+      flex: 100%;
+      max-width: 100%;
+      overflow: auto;
+    }
+
+    .content {
+      flex-grow: 1;
+      background: $color-white;
+    }
+  }
+
+}
+

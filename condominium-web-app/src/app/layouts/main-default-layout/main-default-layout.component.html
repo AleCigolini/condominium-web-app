@@ -1,0 +1,28 @@
+<ng-container>
+  <mat-sidenav-container style="height: 100%">
+    <mat-sidenav #sidenav disableClose style="padding: 10px">
+      <button mat-raised-button color="primary" routerLink="/" (click)="sidenav.toggle()" style="width: 100%; margin-bottom: 10px">Home</button>
+      <button mat-raised-button color="primary" routerLink="/building" (click)="sidenav.toggle()" style="width: 100%">Prédios</button>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div>
+        <condominium-toolbar
+          (sidenavToggle)="sidenav.toggle()"
+        ></condominium-toolbar>
+      </div>
+      <div class="container-fluid">
+        <div class="card">
+          <div class="main row">
+            <div class="main-content col-12 col-md-11">
+              <div class="content">
+                <router-outlet></router-outlet>
+              </div>
+            </div>
+          </div>
+        </div>
+        <condominium-footer></condominium-footer>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>

@@ -6,14 +6,17 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AngularMaterialModule} from "./shared/angular-material/angular-material.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HomeModule} from "./home/home.module";
+import {MainDefaultLayoutModule} from "./layouts/main-default-layout/main-default-layout.module";
 import {LoginComponent} from "./modules/login/login.component";
-import {HomeComponent} from "./modules/home/home.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    HomeComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -21,8 +24,23 @@ import {HomeComponent} from "./modules/home/home.component";
     AngularMaterialModule,
     NgbModule,
     AppRoutingModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    HomeModule,
+    MainDefaultLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}
+

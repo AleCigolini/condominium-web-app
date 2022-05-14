@@ -1,0 +1,12 @@
+{
+  "login": {
+    "title-login": "Acessar sistema",
+    "username": "Usuário",
+    "password": "Senha",
+    "enter": "Entrar",
+    "placeholder": {
+      "username": "Digite seu usuário",
+      "password": "Digite sua senha"
+    }
+  }
+}
